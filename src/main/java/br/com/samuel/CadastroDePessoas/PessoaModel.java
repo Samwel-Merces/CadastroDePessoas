@@ -1,6 +1,8 @@
 package br.com.samuel.CadastroDePessoas;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -9,18 +11,22 @@ import jakarta.persistence.Table;
 public class PessoaModel {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY) //ID gerado automaticamente
     long id;
     String nome;
     String email;
     int idade;
     
 
+    public PessoaModel() {}
 
     public PessoaModel(String nome, String email, int idade) {
         this.nome = nome;
         this.email = email;
         this.idade = idade;
     }
+
+
 
     public String getNome() {
         return nome;
