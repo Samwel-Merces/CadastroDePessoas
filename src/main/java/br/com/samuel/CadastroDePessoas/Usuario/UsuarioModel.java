@@ -1,6 +1,7 @@
-package br.com.samuel.CadastroDePessoas.Pessoas;
+package br.com.samuel.CadastroDePessoas.Usuario;
 
 import br.com.samuel.CadastroDePessoas.Tarefas.TarefaModel;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,22 +10,28 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity   //esta anotação transforma uma Classe em uma entidade de Banco de Dados
-@Table(name = "tb cadastro_de_pessoas") //cria tabela junto com o nome dela
-public class PessoaModel {
+@Table(name = "tb_usuarios") //cria tabela junto com o nome dela
+public class UsuarioModel {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY) //ID gerado automaticamente
     private long id;
+
+    @Column(nullable = false)
     private String nome;
+
+    @Column(nullable = false)
     private String email;
+
+    @Column(nullable = false)
     private int idade;
 
     @ManyToOne //Cada usuário só pode ter uma tarefa por vez
     private TarefaModel tarefa;
 
-    public PessoaModel() {}
+    public UsuarioModel() {}
 
-    public PessoaModel(String nome, String email, int idade) {
+    public UsuarioModel(String nome, String email, int idade) {
         this.nome = nome;
         this.email = email;
         this.idade = idade;

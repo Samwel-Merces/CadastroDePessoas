@@ -2,7 +2,7 @@ package br.com.samuel.CadastroDePessoas.Tarefas;
 
 import java.util.List;
 
-import br.com.samuel.CadastroDePessoas.Pessoas.PessoaModel;
+import br.com.samuel.CadastroDePessoas.Usuario.UsuarioModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,7 +20,7 @@ public class TarefaModel {
     private String nomeTarefa;
 
     @OneToMany //Uma tarefa pode ter varias Pessoas
-    private List<PessoaModel> pessoas;
+    private List<UsuarioModel> pessoas;
     private boolean ativa;
     private boolean concluida;
 
