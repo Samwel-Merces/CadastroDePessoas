@@ -1,13 +1,11 @@
 package br.com.samuel.CadastroDePessoas.Tarefas;
 
-import java.util.List;
-
 import br.com.samuel.CadastroDePessoas.Usuario.UsuarioModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,8 +17,8 @@ public class TarefaModel {
     private Long id;
     private String nomeTarefa;
 
-    @OneToMany //Uma tarefa pode ter varias Pessoas
-    private List<UsuarioModel> pessoas;
+    @ManyToOne //muitas tarefas pertencem a 1 usuario
+    private UsuarioModel pessoas;
     private boolean ativa;
     private boolean concluida;
 

@@ -10,9 +10,11 @@ public record UsuarioDTO(
     String nome,
 
     @Email
+    @NotBlank
     String email,
 
     @Size(min = 8)
+    @NotBlank
     String senha
 
 ) {}

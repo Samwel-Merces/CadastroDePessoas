@@ -1,5 +1,7 @@
 package br.com.samuel.CadastroDePessoas.Usuario;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,16 +11,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
 
-    private final UsuarioService service;
+    private final UsuarioService usuarioService;
 
 
-    public UsuarioController(UsuarioService service) {
-        this.service = service;
+    public UsuarioController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
     }
 
-    public ResponseEntity<> buscar(){
+    // @PostMapping
+    // public ResponseEntity<Usuario> cadastrar(@RequestBody @Valid UsuarioDTO dto){
 
-    } 
+    // }
+    @GetMapping
+    public ResponseEntity<List<UsuarioModel>> listar(){
+        return ResponseEntity.ok(usuarioService.listar());
+    }
     
     
 }
